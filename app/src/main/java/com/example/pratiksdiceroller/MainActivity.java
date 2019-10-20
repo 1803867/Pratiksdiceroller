@@ -11,11 +11,14 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
+
+    private int score =0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,13 +58,49 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
     public void on_button_click(View view){
 
-        TextView tv = this.findViewById(R.id.numberTextView);
 
-        Random r = new Random();
-        int number = r.nextInt(6);
+        TextView tv = this.findViewById(R.id.numberView);
 
+        Random rand = new Random();
+        int number = rand.nextInt(7);
         tv.setText(Integer.toString(number));
+
+
+        EditText inputText = (EditText)findViewById(R.id.Enternumber);
+
+        TextView gv = this.findViewById(R.id.guessView);
+        TextView suv =this.findViewById(R.id.success);
+
+        try {
+            int guess = Integer.parseInt(inputText.getText().toString());
+            gv.setText(Integer.toString(guess));
+
+            TextView scv = this.findViewById(R.id.viewscore);
+
+
+            if(inputText == null){
+                inputText.setText("0");
+            }
+
+
+            if(guess > 6 || guess < 1){
+                tv.setText("Invalid number");
+            }
+            inputText.setText("");
+            if(number == guess){
+                suv.setText("Nice!");
+                this.score++;
+                scv.setText(Integer.toString(score));
+            }
+        }catch (NumberFormatException e){
+            tv.setText("No Input");
+        }
+
+
     }
+
+
 }
