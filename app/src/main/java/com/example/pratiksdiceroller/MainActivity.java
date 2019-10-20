@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         TextView tv = this.findViewById(R.id.numberView);
-
+        //gets random number
         Random rand = new Random();
         int number = rand.nextInt(7);
         tv.setText(Integer.toString(number));
