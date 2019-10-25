@@ -49,17 +49,18 @@
 
     <Button
         android:id="@+id/generateButton"
-        android:layout_width="365dp"
-        android:layout_height="57dp"
+        android:layout_width="142dp"
+        android:layout_height="71dp"
         android:layout_marginBottom="120dp"
         android:onClick="on_button_click"
-        android:text="Roll the dice!"
-        android:textSize="30sp"
+        android:text="I am feeling lucky!"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.122"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.66" />
+        app:layout_constraintVertical_bias="0.733" />
 
     <EditText
         android:id="@+id/Enternumber"
@@ -71,7 +72,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.698" />
+        app:layout_constraintVertical_bias="0.766" />
 
     <TextView
         android:id="@+id/textView"
@@ -124,5 +125,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.3" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="142dp"
+        android:layout_height="72dp"
+        android:onClick="when_button_clicked"
+        android:text="Let's play D-ICEBREAKERS'"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.832"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.567" />
+
+    <TextView
+        android:id="@+id/question"
+        android:layout_width="379dp"
+        android:layout_height="21dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.516"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.391" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

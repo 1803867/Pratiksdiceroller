@@ -15,10 +15,15 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.Random;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
     private int score =0;
+
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,15 +64,13 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+
     public void on_button_click(View view){
 
+        int number = Roll_the_dice();
 
         TextView tv = this.findViewById(R.id.numberView);
-        //gets random number
-        Random rand = new Random();
-        int number = rand.nextInt(7);
         tv.setText(Integer.toString(number));
-
 
         EditText inputText = (EditText)findViewById(R.id.Enternumber);
 
@@ -77,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
         try {
             int guess = Integer.parseInt(inputText.getText().toString());
             gv.setText(Integer.toString(guess));
+            suv.setText("");
 
             TextView scv = this.findViewById(R.id.viewscore);
 
@@ -94,6 +98,7 @@ public class MainActivity extends AppCompatActivity {
                 suv.setText("Nice!");
                 this.score++;
                 scv.setText(Integer.toString(score));
+
             }
         }catch (NumberFormatException e){
             tv.setText("No Input");
@@ -101,6 +106,31 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+    public int Roll_the_dice() {
+        //gets random number
+        Random rand = new Random();
+        int number = rand.nextInt(7);
+        return number;
+    }
+
+public void when_button_clicked(View view){
+
+        TextView mv = this.findViewById(R.id.question);
+        ArrayList<String> questionlist = new ArrayList<String>();
+
+        questionlist.add("If you could go anywhere in the world,where would you go?");
+        questionlist.add("If you were stranded on a desert island, what three things would you want to take with you?");
+        questionlist.add("If you could eat only one food for the rest of your life, what would that be?");
+        questionlist.add("If you won a million dollars, what is the first thing you would buy?");
+        questionlist.add("If you could spaned the day with one fictional character, who would it be?");
+        questionlist.add("If you found a magic lantern and a genie gave you three wishes, what would you wish?");
+
+        int randomnumber = (int) (Math.random()*6);
+
+        mv.setText(questionlist.get(randomnumber));
+
+    }
+
 
 
 }
